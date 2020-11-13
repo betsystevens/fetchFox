@@ -2,6 +2,8 @@
 
 JavaScript promises and the api at [Random Fox](https://randomfox.ca/floof) are used to display stunning pictures of beautiful foxes.
 
+[demo](https://betsystevens.github.io/fetchFox/)
+
 To get the pictures I use the fetch api with chaining   
   * ```fetch().then().then().then()```
 
