@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="normalize.css">
+  <link rel="stylesheet" href="style.css">
+  <title>fetch fox</title>
+</head>
+<body>
+  <ul>
+    <li><button id="randomFox">Random Fox</button></li>
+  </ul>
+  <div class="flex column center">
+    <img max-width="900px" max-height="500px" id="fox">
+  </div>
+  <div class="flex column center">
+    <h1 id="error"></h1>
+    <h2 id="error2"></h2>
+  </div>
+
+  <script>
+    document.getElementById('randomFox').addEventListener('click', getText)
+    function getText() {
+      fetch('https://randomfox.ca/floof/')
+      .then((res) => res.json())
+      .then((data) => data["image"])
+      .then(function(image) {
+        document.getElementById('fox').src = image;
+      })
+      .catch(function (err) {
+        console.error(`error: ${err}`)
+        document.getElementById('error').innerHTML = `oops, network error`;
+        document.getElementById('error2').innerHTML = `(it's not you, it's them)`;
+      })
+    }
+  </script>
+</body>
+</html>
